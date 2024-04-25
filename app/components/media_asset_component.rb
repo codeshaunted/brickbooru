@@ -4,7 +4,7 @@
 class MediaAssetComponent < ApplicationComponent
   attr_reader :media_asset, :current_user, :outer_classes, :inner_classes, :dynamic_height, :scroll_on_zoom
 
-  delegate :image_width, :image_height, :variant, :is_image?, :is_video?, :is_ugoira?, :is_flash?, to: :media_asset
+  delegate :image_width, :image_height, :variant, :is_image?, :is_video?, :is_ugoira?, :is_flash?, :is_ldraw?, to: :media_asset
 
   renders_one :header
   renders_one :footer

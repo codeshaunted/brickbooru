@@ -22,6 +22,8 @@
       <%= tag.video src: variant(:sample).file_url, width: image_width, height: image_height, autoplay: true, loop: true, controls: "controls", class: "media-asset-image" %>
     <% elsif is_flash? %>
       <%= tag.div "data-swf": variant(:original).file_url, class: "media-asset-image ruffle-container" %>
+    <% elsif is_ldraw? %>
+      IMAGINE THERE'S AN LDRAW VIEWER HERE
     <% end %>
   </div>
 
