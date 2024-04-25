@@ -1,0 +1,3 @@
+[submodule "public/buildinginstructions"]
+	path = public/buildinginstructions
+	url = https://github.com/LasseD/buildinginstructions.js
