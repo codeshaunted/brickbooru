@@ -160,6 +160,7 @@ services:
         target: /usr/local/nginx/conf/nginx.conf
     volumes:
       - "danbooru-images:/images"
+      - ${DANBOORU_DIR:-./}:/danbooru
 
   autotagger:
     image: ghcr.io/danbooru/autotagger:latest
