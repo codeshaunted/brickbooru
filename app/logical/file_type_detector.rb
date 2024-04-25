@@ -82,6 +82,10 @@ class FileTypeDetector
     when /\ARar!\x1a\x07\x01\x00/n
       :rar
 
+    # LDraw
+    when /0 /n, /1 /n
+      :ldr
+
     else
       :bin
     end

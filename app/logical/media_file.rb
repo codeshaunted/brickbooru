@@ -46,6 +46,7 @@ class MediaFile
   # @param options [Hash] Extra options for the MediaFile subclass.
   # @return [MediaFile] The media file.
   def self.new_from_file(file, file_ext = MediaFile.file_ext(file), **options)
+    printf "TEST\n"
     case file_ext
     when :jpg, :gif, :png, :webp, :avif
       MediaFile::Image.new(file, **options)
@@ -55,6 +56,9 @@ class MediaFile
       MediaFile::Video.new(file, **options)
     when :zip
       MediaFile::Ugoira.new(file, **options)
+    when :ldr
+      printf "LDRAW\n"
+      MediaFile::Ldraw.new(file, **options)
     else
       MediaFile.new(file, **options)
     end
@@ -178,6 +182,11 @@ class MediaFile
   # @return [Boolean] true if the file is a Flash file
   def is_flash?
     file_ext == :swf
+  end
+
+  # @return [Boolean] true if the file is an LDraw file
+  def is_ldraw?
+    file_ext == :ldr
   end
 
   # @return [Boolean] True if the file is too corrupted to read or generate thumbnails without error.

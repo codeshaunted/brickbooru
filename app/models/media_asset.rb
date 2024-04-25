@@ -3,7 +3,7 @@
 class MediaAsset < ApplicationRecord
   class Error < StandardError; end
 
-  FILE_TYPES = %w[jpg png gif webp avif mp4 webm swf zip]
+  FILE_TYPES = %w[jpg png gif webp avif mp4 webm swf zip ldr]
   FILE_KEY_LENGTH = 9
   VARIANTS = %i[180x180 360x360 720x720 sample full original]
   MAX_FILE_SIZE = Danbooru.config.max_file_size.to_i
@@ -533,6 +533,10 @@ class MediaAsset < ApplicationRecord
 
     def is_flash?
       file_ext == "swf"
+    end
+
+    def is_ldraw?
+      file_ext == "ldr"
     end
 
     def is_animated?
