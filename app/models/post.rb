@@ -211,6 +211,10 @@ class Post < ApplicationRecord
       file_ext =~ /swf/i
     end
 
+    def is_ldraw?
+      file_ext =~ /ldr/i
+    end
+
     def is_video?
       file_ext.in?(%w[webm mp4])
     end
@@ -455,6 +459,10 @@ class Post < ApplicationRecord
 
       if is_flash?
         tags << "flash"
+      end
+
+      if is_ldraw?
+        tags << "ldraw"
       end
 
       if is_video?
