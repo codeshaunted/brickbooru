@@ -46,7 +46,6 @@ class MediaFile
   # @param options [Hash] Extra options for the MediaFile subclass.
   # @return [MediaFile] The media file.
   def self.new_from_file(file, file_ext = MediaFile.file_ext(file), **options)
-    printf "TEST\n"
     case file_ext
     when :jpg, :gif, :png, :webp, :avif
       MediaFile::Image.new(file, **options)
@@ -57,7 +56,6 @@ class MediaFile
     when :zip
       MediaFile::Ugoira.new(file, **options)
     when :ldr
-      printf "LDRAW\n"
       MediaFile::Ldraw.new(file, **options)
     else
       MediaFile.new(file, **options)

@@ -497,7 +497,7 @@ class MediaAsset < ApplicationRecord
     def variant_types
       @variant_types ||= begin
         variants = []
-        variants = %i[180x180 360x360 720x720] unless is_flash?
+        variants = %i[180x180 360x360 720x720] unless is_flash? || is_ldraw?
         variants << :sample if is_ugoira? || (is_static_image? && image_width > LARGE_IMAGE_WIDTH)
         variants << :full if is_webp? || is_avif?
         variants << :original

@@ -191,6 +191,7 @@ class Post < ApplicationRecord
     def preview_file_url
       # XXX hack to return placeholder thumbnail for Flash files the /posts.json API.
       return Danbooru.config.storage_manager.file_url("/images/flash-preview.png") if media_asset.is_flash?
+      return Danbooru.config.storage_manager.file_url("/images/ldraw-preview.png") if media_asset.is_ldraw?
       media_asset.variant(:"180x180").file_url
     end
 
