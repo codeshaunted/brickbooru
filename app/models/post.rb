@@ -438,22 +438,22 @@ class Post < ApplicationRecord
         tags << "tagme"
       end
 
-      if image_width >= 10_000 || image_height >= 10_000
+      if image_width >= 10_000 || image_height >= 10_000 && !is_ldraw?
         tags << "incredibly_absurdres"
       end
-      if image_width >= 3200 || image_height >= 2400
+      if image_width >= 3200 || image_height >= 2400 && !is_ldraw?
         tags << "absurdres"
       end
-      if image_width >= 1600 || image_height >= 1200
+      if image_width >= 1600 || image_height >= 1200 && !is_ldraw?
         tags << "highres"
       end
-      if image_width <= 500 && image_height <= 500
+      if image_width <= 500 && image_height <= 500 && !is_ldraw?
         tags << "lowres"
       end
 
-      if image_width >= 1024 && image_width.to_f / image_height >= 4
+      if image_width >= 1024 && image_width.to_f / image_height >= 4 && !is_ldraw?
         tags << "wide_image"
-      elsif image_height >= 1024 && image_height.to_f / image_width >= 4
+      elsif image_height >= 1024 && image_height.to_f / image_width >= 4 && !is_ldraw?
         tags << "tall_image"
       end
 
