@@ -18,8 +18,7 @@
         <% if media_asset.is_flash? %>
           <%= tag.img src: "/images/flash-preview.png", class: "post-preview-image", title: tooltip, alt: "post ##{post.id}", draggable: "false" -%>
         <% elsif media_asset.is_ldraw? %>
-        
-          <%= tag.img src: "/images/ldraw-preview.png", class: "post-preview-image", title: tooltip, alt: "post ##{post.id}", draggable: "false" -%>
+          <iframe src="/buildinginstructions/ldraw_preview.htm?model=<%= media_asset.variant(:original).file_url %>" width=100% height=100%></iframe>
         <% else %>
           <% unless save_data %>
             <% case size %>
