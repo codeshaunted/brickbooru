@@ -137,10 +137,7 @@ services:
       - "danbooru-data:/var/lib/postgresql/data"
 
   nginx:
-    #image: ${DANBOORU_IMAGE:-ghcr.io/danbooru/danbooru:development}
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: ${DANBOORU_IMAGE:-ghcr.io/danbooru/danbooru:development}
     command: ["openresty", "-e", "/dev/stderr"]
     environment:
       # The external port to listen on. You can set this to 80 if you have nothing else listening on port 80.
