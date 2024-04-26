@@ -73,8 +73,8 @@ jobs:
         id: metadata
         with:
           images: |
-            docker.io/evazion/danbooru
-            ghcr.io/danbooru/danbooru
+            docker.io/codeshaunted/brickbooru
+            ghcr.io/codeshaunted/brickbooru
           tags: |
             type=sha,format=long,prefix=
             type=ref,event=branch
