@@ -97,6 +97,8 @@ x-base-template: &base-template
     retries: 1
 
   environment:
+    DANBOORU_APP_NAME: "Brickbooru"
+  
     # The public URL of your site. You can set this if you have a domain name for your site.
     DANBOORU_CANONICAL_URL: ${DANBOORU_CANONICAL_URL:-}
 
