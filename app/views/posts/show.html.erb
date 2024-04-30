@@ -276,7 +276,7 @@
     <% elsif @post.is_flash? -%>
       <div class="ruffle-container" data-swf="<%= @post.tagged_file_url %>"></div>
     <% elsif @post.is_ldraw? %>
-      <iframe src="/buildinginstructions/ldraw_view.htm?model=<%= @post.tagged_file_url %>" style="width: 60vw; height: 80vh;"></iframe>
+      <iframe src="/buildinginstructions/ldraw_view.htm?model=<%= @post.large_file_url %>" style="width: 60vw; height: 80vh;"></iframe>
     <% elsif @post.is_video? -%>
       <%= tag.video(id: "image", class: "fit-width", width: @post.image_width, height: @post.image_height, autoplay: true, loop: true, controls: "controls", src: @post.tagged_file_url) %>
     <% elsif @post.is_ugoira? -%>

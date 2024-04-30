@@ -23,7 +23,7 @@
     <% elsif is_flash? %>
       <%= tag.div "data-swf": variant(:original).file_url, class: "media-asset-image ruffle-container" %>
     <% elsif is_ldraw? %>
-       <iframe src="/buildinginstructions/ldraw_view.htm?model=<%= variant(:original).file_url %>" width=100% height=100%></iframe>
+       <iframe src="/buildinginstructions/ldraw_view.htm?model=<%= variant(:sample).file_url %>" width=100% height=100%></iframe>
     <% end %>
   </div>
 

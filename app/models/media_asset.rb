@@ -126,6 +126,8 @@ class MediaAsset < ApplicationRecord
         media_file.convert
       in :sample | :full if media_asset.is_static_image?
         media_file.preview!(width, height, format: :jpeg, quality: 85)
+      in :sample if media_asset.is_ldraw?
+        media_file.convert
       in :original
         media_file
       end
@@ -161,6 +163,8 @@ class MediaAsset < ApplicationRecord
         "webm"
       in :sample | :full if media_asset.is_static_image?
         "jpg"
+      in :sample if media_asset.is_ldraw?
+        "ldr"
       in :original
         media_asset.file_ext
       end
@@ -498,7 +502,7 @@ class MediaAsset < ApplicationRecord
       @variant_types ||= begin
         variants = []
         variants = %i[180x180 360x360 720x720] unless is_flash? || is_ldraw?
-        variants << :sample if is_ugoira? || (is_static_image? && image_width > LARGE_IMAGE_WIDTH)
+        variants << :sample if is_ugoira? || is_ldraw? || (is_static_image? && image_width > LARGE_IMAGE_WIDTH)
         variants << :full if is_webp? || is_avif?
         variants << :original
         variants

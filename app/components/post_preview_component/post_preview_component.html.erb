@@ -19,7 +19,7 @@
           <%= tag.img src: "/images/flash-preview.png", class: "post-preview-image", title: tooltip, alt: "post ##{post.id}", draggable: "false" -%>
         <% elsif media_asset.is_ldraw? %>
           <%= tag.img id:"preview-image-#{post.id}", class: "post-preview-image", title: tooltip, alt: "post ##{post.id}", draggable: "false" -%>
-          <iframe id="preview-iframe-<%= post.id %>" class="post-preview-image" alt="post #<%= post.id%>" draggable="false" src="/buildinginstructions/ldraw_preview.htm?model=<%= media_asset.variant(:original).file_url %>" width=512 height=512></iframe>
+          <iframe id="preview-iframe-<%= post.id %>" class="post-preview-image" alt="post #<%= post.id%>" draggable="false" src="/buildinginstructions/ldraw_preview.htm?model=<%= media_asset.variant(:sample).file_url %>" width=512 height=512></iframe>
           <script>
               // ChatGPT abomination that pulls the image from out of the iframe after it renders
               // developers developers developers developers developers developers developers
